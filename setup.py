@@ -4,7 +4,7 @@
 from setuptools import setup
 
 setup(
-    name='ERPpeek WST',
+    name='erppeek_wst',
     version=0.1,
     license='BSD',
     description='Erppeek extension for using web services transactions',
@@ -12,8 +12,8 @@ setup(
     url='http://github.com/totaler/erppeek_wst',
     author='Joan M. Grande',
     author_email='totaler@gmail.com',
-    install_requires=['erppeek'],
-    py_modules=['erppeek_wst'],
+    install_requires=['ERPpeek'],
+    packages=['erppeek_wst'],
     platforms='any',
     keywords="openerp xml-rpc xmlrpc",
     classifiers=[
