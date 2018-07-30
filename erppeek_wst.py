@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from erppeek import Client, Service
+from erppeek import Client, Service, RequestsTransport
 import functools
 from six.moves import xmlrpc_client as xmlrpclib
 
@@ -9,14 +9,14 @@ from six.moves import xmlrpc_client as xmlrpclib
 class ClientWST(Client):
 
     def __init__(self, server, db=None, user=None, password=None,
-                 verbose=False):
+                 transport=RequestsTransport(), verbose=False):
         self.transaction_id = None
         methods = ['execute', 'get_transaction',
                    'commit', 'rollback', 'close', 'begin', 'close_connection']
-        self._sync = Service(server, 'ws_transaction', methods, verbose=verbose)
+        self._sync = Service(server, 'ws_transaction', methods, transport, verbose=verbose)
         super(ClientWST,
               self).__init__(server, db=db, user=user,
-                             password=password, verbose=verbose)
+                             password=password, transport=transport, verbose=verbose)
 
     def login(self, user, password=None, database=None):
         super(ClientWST,
