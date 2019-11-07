@@ -4,15 +4,15 @@
 from setuptools import setup
 
 setup(
-    name='ERPpeek WST',
-    version='0.2.3',
+    name='ERPPeek-WST',
+    version='0.2.4',
     license='BSD',
-    description='Erppeek extension for using web services transactions',
+    description='Erppeek extension for using web services transactions with ws_transactions module',
     long_description='',
-    url='http://github.com/totaler/erppeek_wst',
-    author='Joan M. Grande',
-    author_email='totaler@gmail.com',
-    install_requires=['erppeek>=1.7.0', 'six'],
+    url='http://github.com/gisce/erppeek_wst',
+    author='GISCE-TI, S.L.',
+    author_email='devel@gisce.net',
+    install_requires=['erppeek>=1.7', 'six'],
     py_modules=['erppeek_wst'],
     platforms='any',
     keywords="openerp xml-rpc xmlrpc",
