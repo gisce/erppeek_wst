@@ -12,7 +12,7 @@ setup(
     url='http://github.com/totaler/erppeek_wst',
     author='Joan M. Grande',
     author_email='totaler@gmail.com',
-    install_requires=['erppeek', 'six'],
+    install_requires=['erppeek<1.7', 'six'],
     py_modules=['erppeek_wst'],
     platforms='any',
     keywords="openerp xml-rpc xmlrpc",
