@@ -12,7 +12,7 @@ setup(
     url='http://github.com/gisce/erppeek_wst',
     author='GISCE-TI, S.L.',
     author_email='devel@gisce.net',
-    install_requires=['erppeek<1.7', 'six'],
+    install_requires=['erppeek>=1.7', 'six'],
     py_modules=['erppeek_wst'],
     platforms='any',
     keywords="openerp xml-rpc xmlrpc",

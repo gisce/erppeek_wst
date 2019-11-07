@@ -9,11 +9,12 @@ from six.moves import xmlrpc_client as xmlrpclib
 class ClientWST(Client):
 
     def __init__(self, server, db=None, user=None, password=None,
-                 verbose=False):
+                 transport=None, verbose=False):
         self.transaction_id = None
+        self._set_services(server, transport, verbose)
         methods = ['execute', 'get_transaction',
                    'commit', 'rollback', 'close', 'begin', 'close_connection']
-        self._sync = Service(server, 'ws_transaction', methods, verbose=verbose)
+        self._sync = Service(self, 'ws_transaction', methods, verbose=verbose)
         super(ClientWST,
               self).__init__(server, db=db, user=user,
                              password=password, verbose=verbose)
@@ -62,4 +63,5 @@ class ClientWST(Client):
 
     def close(self):
         self._close_connection(self.transaction_id)
-
+        self._execute = self._execute_bare
+        self.transaction_id = None
