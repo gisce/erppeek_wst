@@ -5,6 +5,9 @@ from erppeek import Client, Service
 import functools
 from six.moves import xmlrpc_client as xmlrpclib
 
+class ServiceWST(Service):
+    def __del__(self):
+        pass
 
 class ClientWST(Client):
 
@@ -14,7 +17,7 @@ class ClientWST(Client):
         self._set_services(server, transport, verbose)
         methods = ['execute', 'get_transaction',
                    'commit', 'rollback', 'close', 'begin', 'close_connection']
-        self._sync = Service(self, 'ws_transaction', methods, verbose=verbose)
+        self._sync = ServiceWST(self, 'ws_transaction', methods, verbose=verbose)
         super(ClientWST,
               self).__init__(server, db=db, user=user,
                              password=password, verbose=verbose)
